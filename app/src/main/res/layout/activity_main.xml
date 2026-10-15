@@ -18,16 +18,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Aimbot • ESP • Recoil Control"
+        android:text="Aimbot + ESP + Controle de Recuo"
         android:textColor="#AAAAAA"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:layout_marginBottom="24dp"/>
 
     <Button
         android:id="@+id/btnStartCheat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Iniciar Cheat"
+        android:text="Iniciar trapaça"
         android:textColor="#FFFFFF"
         android:backgroundTint="#2196F3"
         android:textAllCaps="false"
@@ -35,10 +35,10 @@
         android:layout_marginBottom="16dp"/>
 
     <Button
-        android:id="@+id/btnStopCheat"
+        android:id="@+id/btnPararTrapaca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Parar Cheat"
+        android:text="Traça Parar"
         android:textColor="#FFFFFF"
         android:backgroundTint="#F44336"
         android:textAllCaps="false"
@@ -57,9 +57,9 @@
         android:layout_marginBottom="8dp"/>
 
     <TextView
-        android:layout_width="wrap_content
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="• Volume + 3x: Mostrar/Esconder Painel\n• Volume - 3x: Bypass (Limpar Arquivos)\n• Painel: Ativar/Desativar Funções"
+        android:text="- Volume + 3x: Mostrar/Esconder Painel\n- Volume - 3x: Bypass\n- Painel: Ativar"
         android:textColor="#AAAAAA"
         android:textSize="12sp"
         android:layout_marginBottom="16dp"/>
