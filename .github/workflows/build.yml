@@ -25,6 +25,11 @@ jobs:
       with:
         gradle-version: '8.7'
 
+    - name: Corrigir permissoes do ambiente Android
+      run: |
+        mkdir -p ~/.android
+        chmod -R 777 ~/.android
+
     - name: Instalar NDK e CMake via sdkmanager
       run: |
         echo "y" | sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "ndk;25.1.8937393" "cmake;3.22.1"
