@@ -24,10 +24,18 @@ jobs:
       run: |
         echo "y" | sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "ndk;25.1.8937393" "cmake;3.22.1"
 
-    - name: Recriar Gradle Wrapper Limpo
+    - name: Recriar Gradle Wrapper na Versao 8.7
       run: |
-        rm -rf gradlew gradlew.bat gradle/wrapper/gradle-wrapper.jar
-        gradle wrapper --gradle-version 8.7
+        rm -rf gradlew gradlew.bat gradle/wrapper/
+        mvn --version || true
+        # Forca o download e configuracao exata do Gradle 8.7 via script oficial ou wrapper
+        curl -s https://raw.githubusercontent.com/gradle/gradle/v8.7.0/gradlew > gradlew
+        mkdir -p gradle/wrapper
+        echo "distributionBase=GRADLE_USER_HOME" > gradle/wrapper/gradle-wrapper.properties
+        echo "distributionPath=wrapper/dists" >> gradle/wrapper/gradle-wrapper.properties
+        echo "distributionUrl=https\://services.gradle.org/distributions/gradle-8.7-bin.zip" >> gradle/wrapper/gradle-wrapper.properties
+        echo "zipStoreBase=GRADLE_USER_HOME" >> gradle/wrapper/gradle-wrapper.properties
+        echo "zipStorePath=wrapper/dists" >> gradle/wrapper/gradle-wrapper.properties
 
     - name: Compilar APK (Debug)
       run: |
