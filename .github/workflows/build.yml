@@ -24,8 +24,10 @@ jobs:
       run: |
         echo "y" | sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "ndk;25.1.8937393" "cmake;3.22.1"
 
-    - name: Dar permissao ao Gradle Wrapper
-      run: chmod +x gradlew
+    - name: Ajustar permissoes e formato do Gradle Wrapper
+      run: |
+        sed -i 's/\r$//' gradlew
+        chmod +x gradlew
 
     - name: Compilar APK (Debug)
       run: ./gradlew assembleDebug
