@@ -30,7 +30,7 @@ jobs:
         chmod +x gradlew
 
     - name: Compilar APK (Debug)
-      run: ./gradlew assembleDebug
+      run: bash ./gradlew assembleDebug
 
     - name: Guardar o APK gerado
       uses: actions/upload-artifact@v4
