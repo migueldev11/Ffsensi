@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FF Cheat Pro</string>
+    <string name="start_cheat">Iniciar Cheat</string>
+    <string name="stop_cheat">Parar Cheat</string>
+    <string name="status_inactive">Status: Inativo</string>
+    <string name="status_active">Status: Ativo</string>
+    <string name="overlay_instructions">Controles de Volume:\n• Volume + 3x: Mostrar/Esconder Painel\n• Volume - 3x: Bypass (Limpar Arquivos)\n• Painel: Ativar/Desativar Funções</string>
+</resources>
