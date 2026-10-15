@@ -24,13 +24,15 @@ jobs:
       run: |
         echo "y" | sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "ndk;25.1.8937393" "cmake;3.22.1"
 
-    - name: Ajustar permissoes totais e formato do Gradle Wrapper
+    - name: Recriar Gradle Wrapper Limpo
       run: |
-        find . -name "gradlew" -exec sed -i 's/\r$//' {} +
-        chmod -R +x gradlew gradle/
+        rm -rf gradlew gradlew.bat gradle/wrapper/gradle-wrapper.jar
+        gradle wrapper --gradle-version 8.7
 
     - name: Compilar APK (Debug)
-      run: ./gradlew assembleDebug
+      run: |
+        chmod +x gradlew
+        ./gradlew assembleDebug
 
     - name: Guardar o APK gerado
       uses: actions/upload-artifact@v4
