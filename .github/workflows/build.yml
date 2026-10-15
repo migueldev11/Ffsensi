@@ -24,10 +24,12 @@ jobs:
       run: |
         echo "y" | sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "ndk;25.1.8937393" "cmake;3.22.1"
 
-    - name: Gerar Gradle Wrapper limpo
+    - name: Gerar Gradle Wrapper compativel (Versao 8.7)
       run: |
         rm -rf gradlew gradlew.bat gradle/
-        gradle wrapper --gradle-version 8.7
+        sdkmanager --uninstall || true
+        # Instalar o gradle de uma versao estavel via SDK ou usar o comando direto compativel
+        gradle wrapper --gradle-version 8.7.0 --distribution-type bin
 
     - name: Compilar APK (Debug)
       run: |
