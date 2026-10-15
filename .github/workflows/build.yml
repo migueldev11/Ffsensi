@@ -20,14 +20,14 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Configurar Android SDK e NDK
-      uses: android-actions/setup-android@v3
-      with:
-        ndk-version: '25.1.8937393'
-        cmake-version: '3.22.1'
+    - name: Instalar NDK e CMake via sdkmanager
+      run: |
+        echo "y" | sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "ndk;25.1.8937393" "cmake;3.22.1"
 
-    - name: Dar permissão ao Gradle Wrapper
-      run: chmod +x gradlew
+    - name: Corrigir quebras de linha e permissões do Gradle Wrapper
+      run: |
+        sed -i 's/\r$//' gradlew
+        chmod +x gradlew
 
     - name: Compilar APK (Debug)
       run: ./gradlew assembleDebug
@@ -37,9 +37,4 @@ jobs:
       with:
         name: app-debug-apk
         path: app/build/outputs/apk/debug/app-debug.apk
-
-
-
-
-
-
+        
